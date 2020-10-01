@@ -24,7 +24,7 @@ class RNNAgent(nn.Module):
 
 class MLPAgent(nn.Module):
     def __init__(self, input_shape, args):
-        super(RNNAgent, self).__init__()
+        super(MLPAgent, self).__init__()
         self.args = args
 
         self.fc1 = nn.Linear(input_shape, 400)
@@ -40,4 +40,4 @@ class MLPAgent(nn.Module):
         x = F.relu(self.fc1(inputs))
         x = F.relu(self.fc2(x))
         q = 0.1*self.fc3(x)
-        return q, None
+        return q, x
