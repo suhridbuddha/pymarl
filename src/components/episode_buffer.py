@@ -68,7 +68,6 @@ class EpisodeBatch:
                 shape = (groups[group], *vshape)
             else:
                 shape = vshape
-
             if episode_const:
                 self.data.episode_data[field_key] = th.zeros((batch_size, *shape), dtype=dtype, device=self.device)
             else:
@@ -154,7 +153,6 @@ class EpisodeBatch:
 
             ret_bs = self._get_num_items(item[0], self.batch_size)
             ret_max_t = self._get_num_items(item[1], self.max_seq_length)
-
             ret = EpisodeBatch(self.scheme, self.groups, ret_bs, ret_max_t, data=new_data, device=self.device)
             return ret
 
@@ -245,4 +243,3 @@ class ReplayBuffer(EpisodeBatch):
                                                                         self.buffer_size,
                                                                         self.scheme.keys(),
                                                                         self.groups.keys())
-
