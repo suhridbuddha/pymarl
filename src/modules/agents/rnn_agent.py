@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
+import torch
 
 
 class RNNAgent(nn.Module):
@@ -33,11 +34,10 @@ class MLPAgent(nn.Module):
 
     def init_hidden(self):
         # # make hidden states on same device as model
-        # return self.fc1.weight.new(1, self.args.rnn_hidden_dim).zero_()
-        pass
+        return torch.zeros(32).detach()
 
     def forward(self, inputs, hidden_state):
         x = F.relu(self.fc1(inputs))
         x = F.relu(self.fc2(x))
         q = 0.1*self.fc3(x)
-        return q, x
+        return q, None
