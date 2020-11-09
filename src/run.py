@@ -117,9 +117,6 @@ def run_sequential(args, logger):
         learner.cuda()
 
     if args.checkpoint_path != "":
-        print("found checkpoint!",flush=True)
-        exit(0)
-
         timesteps = []
         timestep_to_load = 0
 

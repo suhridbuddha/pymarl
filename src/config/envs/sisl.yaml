@@ -7,10 +7,13 @@ log_interval: 10000
 runner_log_interval: 10000
 learner_log_interval: 10000
 t_max: 30000000
-batch_size_run: 1
+batch_size_run: 8
 agent: "mlp"
 save_model: True
 save_model_interval: 1500000
+
+lr: 0.0001 # Learning rate for agents
+critic_lr: 0.0001 # Learning rate for critics
 
 env_args:
     seed: 0
